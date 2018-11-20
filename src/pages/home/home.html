@@ -1,14 +1,44 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+<ion-header >
+  <ion-toolbar >
+    <ion-title >Contactos</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click) = "clickAdd()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content padding style = "background-color: #72705B"> 
+    <ion-list >
+        <ion-item-sliding *ngFor = "let c of contactos">
+          <ion-item  style ="background-color: #BEFFC7">
+            <ion-avatar item-start>
+              <img [src] = c.imagen>
+            </ion-avatar>
+            <h2 (click) = "clickContact(c)">{{c.nombre}}</h2>
+            <p>{{c.num}}</p>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger">
+              <ion-icon name="trash"></ion-icon>
+              Borrar
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+  
+ 
+  
+  
+  <!-- <ion-card *ngFor = "let n of notas">
+    <ion-card-content>
+      {{n}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-input [(ngModel)] ="nota" placeholder = "Escribe algo"></ion-input>
+  </ion-item>
+  <button ion-button block (click) = "clickAgregar()"> Agregar</button>
+</ion-content> -->
